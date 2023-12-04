@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Movie genre tag #<%= @the_movie_genre_tag.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/movie_genre_tags">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_movie_genre_tag/<%= @the_movie_genre_tag.id %>">
+          Delete movie genre tag
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Genre
+      </dt>
+      <dd>
+        <%= @the_movie_genre_tag.genre_id %>
+      </dd>
+
+      <dt>
+        Movie
+      </dt>
+      <dd>
+        <%= @the_movie_genre_tag.movie_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_movie_genre_tag.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_movie_genre_tag.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit movie genre tag
+    </h2>
+
+    <form action="/modify_movie_genre_tag/<%= @the_movie_genre_tag.id %>"  method="post" >
+      <div>
+        <label for="genre_id_box">
+          Genre
+        </label>
+
+        <input type="text" id="genre_id_box" name="query_genre_id" value="<%= @the_movie_genre_tag.genre_id %>">
+      </div>
+
+      <div>
+        <label for="movie_id_box">
+          Movie
+        </label>
+
+        <input type="text" id="movie_id_box" name="query_movie_id" value="<%= @the_movie_genre_tag.movie_id %>">
+      </div>
+
+      <button>
+        Update movie genre tag
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

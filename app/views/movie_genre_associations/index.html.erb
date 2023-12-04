@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all movie genre associations
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new movie genre association
+    </h2>
+
+    <form action="/insert_movie_genre_association" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="genre_id_box">
+          Genre
+        </label>
+
+        <input type="text" id="genre_id_box" name="query_genre_id">
+      </div>
+
+      <div>
+        <label for="status_box">
+          Status
+        </label>
+
+        <input type="text" id="status_box" name="query_status">
+      </div>
+
+      <button>
+        Create movie genre association
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Genre
+        </th>
+
+        <th>
+          Status
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_movie_genre_associations.each do |a_movie_genre_association| %>
+      <tr>
+        <td>
+          <%= a_movie_genre_association.id %>
+        </td>
+
+        <td>
+          <%= a_movie_genre_association.user_id %>
+        </td>
+
+        <td>
+          <%= a_movie_genre_association.genre_id %>
+        </td>
+
+        <td>
+          <%= a_movie_genre_association.status %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_movie_genre_association.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_movie_genre_association.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/movie_genre_associations/<%= a_movie_genre_association.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

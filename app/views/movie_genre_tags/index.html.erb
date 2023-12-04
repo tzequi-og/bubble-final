@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all movie genre tags
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new movie genre tag
+    </h2>
+
+    <form action="/insert_movie_genre_tag" method="post">
+      <div>
+        <label for="genre_id_box">
+          Genre
+        </label>
+
+        <input type="text" id="genre_id_box" name="query_genre_id">
+      </div>
+
+      <div>
+        <label for="movie_id_box">
+          Movie
+        </label>
+
+        <input type="text" id="movie_id_box" name="query_movie_id">
+      </div>
+
+      <button>
+        Create movie genre tag
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Genre
+        </th>
+
+        <th>
+          Movie
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_movie_genre_tags.each do |a_movie_genre_tag| %>
+      <tr>
+        <td>
+          <%= a_movie_genre_tag.id %>
+        </td>
+
+        <td>
+          <%= a_movie_genre_tag.genre_id %>
+        </td>
+
+        <td>
+          <%= a_movie_genre_tag.movie_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_movie_genre_tag.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_movie_genre_tag.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/movie_genre_tags/<%= a_movie_genre_tag.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

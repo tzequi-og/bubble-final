@@ -1,0 +1,182 @@
+<div>
+  <div>
+    <h1>
+      List of all movies
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new movie
+    </h2>
+
+    <form action="/insert_movie" method="post">
+      <div>
+        <label for="director_id_box">
+          Director
+        </label>
+
+        <input type="text" id="director_id_box" name="query_director_id">
+      </div>
+
+      <div>
+        <label for="year_box">
+          Year
+        </label>
+
+        <input type="text" id="year_box" name="query_year">
+      </div>
+
+      <div>
+        <label for="imdb_rating_box">
+          Imdb rating
+        </label>
+
+        <input type="text" id="imdb_rating_box" name="query_imdb_rating">
+      </div>
+
+      <div>
+        <label for="imdb_id_box">
+          Imdb
+        </label>
+
+        <input type="text" id="imdb_id_box" name="query_imdb_id">
+      </div>
+
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title">
+      </div>
+
+      <div>
+        <label for="runtime_box">
+          Runtime
+        </label>
+
+        <input type="text" id="runtime_box" name="query_runtime">
+      </div>
+
+      <div>
+        <label for="poster_link_box">
+          Poster link
+        </label>
+
+        <input type="text" id="poster_link_box" name="query_poster_link">
+      </div>
+
+      <button>
+        Create movie
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Director
+        </th>
+
+        <th>
+          Year
+        </th>
+
+        <th>
+          Imdb rating
+        </th>
+
+        <th>
+          Imdb
+        </th>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Runtime
+        </th>
+
+        <th>
+          Poster link
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_movies.each do |a_movie| %>
+      <tr>
+        <td>
+          <%= a_movie.id %>
+        </td>
+
+        <td>
+          <%= a_movie.director_id %>
+        </td>
+
+        <td>
+          <%= a_movie.year %>
+        </td>
+
+        <td>
+          <%= a_movie.imdb_rating %>
+        </td>
+
+        <td>
+          <%= a_movie.imdb_id %>
+        </td>
+
+        <td>
+          <%= a_movie.title %>
+        </td>
+
+        <td>
+          <%= a_movie.runtime %>
+        </td>
+
+        <td>
+          <%= a_movie.poster_link %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_movie.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_movie.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/movies/<%= a_movie.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Movie genre association #<%= @the_movie_genre_association.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/movie_genre_associations">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_movie_genre_association/<%= @the_movie_genre_association.id %>">
+          Delete movie genre association
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_movie_genre_association.user_id %>
+      </dd>
+
+      <dt>
+        Genre
+      </dt>
+      <dd>
+        <%= @the_movie_genre_association.genre_id %>
+      </dd>
+
+      <dt>
+        Status
+      </dt>
+      <dd>
+        <%= @the_movie_genre_association.status %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_movie_genre_association.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_movie_genre_association.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit movie genre association
+    </h2>
+
+    <form action="/modify_movie_genre_association/<%= @the_movie_genre_association.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_movie_genre_association.user_id %>">
+      </div>
+
+      <div>
+        <label for="genre_id_box">
+          Genre
+        </label>
+
+        <input type="text" id="genre_id_box" name="query_genre_id" value="<%= @the_movie_genre_association.genre_id %>">
+      </div>
+
+      <div>
+        <label for="status_box">
+          Status
+        </label>
+
+        <input type="text" id="status_box" name="query_status" value="<%= @the_movie_genre_association.status %>">
+      </div>
+
+      <button>
+        Update movie genre association
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

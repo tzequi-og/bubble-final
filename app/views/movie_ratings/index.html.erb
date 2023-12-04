@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all movie ratings
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new movie rating
+    </h2>
+
+    <form action="/insert_movie_rating" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="movie_id_box">
+          Movie
+        </label>
+
+        <input type="text" id="movie_id_box" name="query_movie_id">
+      </div>
+
+      <div>
+        <label for="rating_box">
+          Rating
+        </label>
+
+        <input type="text" id="rating_box" name="query_rating">
+      </div>
+
+      <button>
+        Create movie rating
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Movie
+        </th>
+
+        <th>
+          Rating
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_movie_ratings.each do |a_movie_rating| %>
+      <tr>
+        <td>
+          <%= a_movie_rating.id %>
+        </td>
+
+        <td>
+          <%= a_movie_rating.user_id %>
+        </td>
+
+        <td>
+          <%= a_movie_rating.movie_id %>
+        </td>
+
+        <td>
+          <%= a_movie_rating.rating %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_movie_rating.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_movie_rating.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/movie_ratings/<%= a_movie_rating.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

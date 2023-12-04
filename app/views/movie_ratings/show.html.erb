@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Movie rating #<%= @the_movie_rating.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/movie_ratings">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_movie_rating/<%= @the_movie_rating.id %>">
+          Delete movie rating
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_movie_rating.user_id %>
+      </dd>
+
+      <dt>
+        Movie
+      </dt>
+      <dd>
+        <%= @the_movie_rating.movie_id %>
+      </dd>
+
+      <dt>
+        Rating
+      </dt>
+      <dd>
+        <%= @the_movie_rating.rating %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_movie_rating.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_movie_rating.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit movie rating
+    </h2>
+
+    <form action="/modify_movie_rating/<%= @the_movie_rating.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_movie_rating.user_id %>">
+      </div>
+
+      <div>
+        <label for="movie_id_box">
+          Movie
+        </label>
+
+        <input type="text" id="movie_id_box" name="query_movie_id" value="<%= @the_movie_rating.movie_id %>">
+      </div>
+
+      <div>
+        <label for="rating_box">
+          Rating
+        </label>
+
+        <input type="text" id="rating_box" name="query_rating" value="<%= @the_movie_rating.rating %>">
+      </div>
+
+      <button>
+        Update movie rating
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
