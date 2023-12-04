@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all bubbles
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new bubble
+    </h2>
+
+    <form action="/insert_bubble" method="post">
+      <div>
+        <label for="user1_id_box">
+          User1
+        </label>
+
+        <input type="text" id="user1_id_box" name="query_user1_id">
+      </div>
+
+      <div>
+        <label for="user2_id_box">
+          User2
+        </label>
+
+        <input type="text" id="user2_id_box" name="query_user2_id">
+      </div>
+
+      <div>
+        <label for="similarity_score_box">
+          Similarity score
+        </label>
+
+        <input type="text" id="similarity_score_box" name="query_similarity_score">
+      </div>
+
+      <button>
+        Create bubble
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User1
+        </th>
+
+        <th>
+          User2
+        </th>
+
+        <th>
+          Similarity score
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_bubbles.each do |a_bubble| %>
+      <tr>
+        <td>
+          <%= a_bubble.id %>
+        </td>
+
+        <td>
+          <%= a_bubble.user1_id %>
+        </td>
+
+        <td>
+          <%= a_bubble.user2_id %>
+        </td>
+
+        <td>
+          <%= a_bubble.similarity_score %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_bubble.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_bubble.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/bubbles/<%= a_bubble.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

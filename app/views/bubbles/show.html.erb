@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Bubble #<%= @the_bubble.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/bubbles">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_bubble/<%= @the_bubble.id %>">
+          Delete bubble
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User1
+      </dt>
+      <dd>
+        <%= @the_bubble.user1_id %>
+      </dd>
+
+      <dt>
+        User2
+      </dt>
+      <dd>
+        <%= @the_bubble.user2_id %>
+      </dd>
+
+      <dt>
+        Similarity score
+      </dt>
+      <dd>
+        <%= @the_bubble.similarity_score %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_bubble.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_bubble.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit bubble
+    </h2>
+
+    <form action="/modify_bubble/<%= @the_bubble.id %>"  method="post" >
+      <div>
+        <label for="user1_id_box">
+          User1
+        </label>
+
+        <input type="text" id="user1_id_box" name="query_user1_id" value="<%= @the_bubble.user1_id %>">
+      </div>
+
+      <div>
+        <label for="user2_id_box">
+          User2
+        </label>
+
+        <input type="text" id="user2_id_box" name="query_user2_id" value="<%= @the_bubble.user2_id %>">
+      </div>
+
+      <div>
+        <label for="similarity_score_box">
+          Similarity score
+        </label>
+
+        <input type="text" id="similarity_score_box" name="query_similarity_score" value="<%= @the_bubble.similarity_score %>">
+      </div>
+
+      <button>
+        Update bubble
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
